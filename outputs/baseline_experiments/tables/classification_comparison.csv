@@ -1,0 +1,5 @@
+Model,Accuracy,Precision,Recall,F1 Score,CV Accuracy
+Decision Tree,1.0,1.0,1.0,1.0,0.999375
+Random Forest,1.0,1.0,1.0,1.0,0.9981249999999999
+Gradient Boosting,1.0,1.0,1.0,1.0,0.999375
+Logistic Regression,0.9975,0.9978571428571429,0.9975,0.9975945450945451,0.9956250000000001

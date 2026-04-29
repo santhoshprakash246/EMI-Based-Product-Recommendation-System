@@ -1,0 +1,5 @@
+Model,Train Accuracy,Test Accuracy,CV Accuracy,CV Std,Train-Test Gap,Overfitting
+Logistic Regression,1.0,1.0,0.9981250000000002,0.002499999999999997,0.0,Minimal
+Decision Tree,1.0,1.0,1.0,0.0,0.0,Minimal
+Random Forest,1.0,1.0,0.999375,0.0012500000000000178,0.0,Minimal
+Gradient Boosting,1.0,1.0,0.99875,0.001530931089239508,0.0,Minimal
