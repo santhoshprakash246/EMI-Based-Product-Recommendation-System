@@ -1,62 +1,14 @@
-# ✨ FinSmart - AI-Based EMI Affordability & Smart Product Discovery
+# 1. FinSmart - AI-Based EMI Affordability & Smart Product Discovery
+
+FinSmart is an AI-powered web application that helps users discover products they can afford through smart EMI (Equated Monthly Installment) calculations. It combines machine learning with financial analysis to provide personalized product recommendations tailored to your budget and financial profile.
 
 ---
 
-## 📊 Pipeline Diagram
+## 2. Pipeline Diagram
 
 The FinSmart data and ML pipeline flows as follows:
+<img width="428" height="1030" alt="WhatsApp Image 2026-04-29 at 10 36 54 PM" src="https://github.com/user-attachments/assets/d6de3427-c670-4a2c-80b8-a05fd5eafafd" />
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                         DATA LAYER                                  │
-│                                                                     │
-│   Raw Data Generation                                               │
-│   ┌────────────┐   ┌──────────────┐   ┌─────────────────┐          │
-│   │ products   │   │  customers   │   │  transactions   │          │
-│   │ (1000 rows)│   │ (500 rows)   │   │  (2000 rows)    │          │
-│   └─────┬──────┘   └──────┬───────┘   └────────┬────────┘          │
-│         └─────────────────┴────────────────────┘                   │
-│                            │                                        │
-│                            ▼                                        │
-│                  ┌─────────────────┐                                │
-│                  │  Preprocessing  │  (src/preprocessing.py)        │
-│                  │  25+ Features   │                                │
-│                  └────────┬────────┘                                │
-└───────────────────────────┼─────────────────────────────────────────┘
-                            │
-┌───────────────────────────┼─────────────────────────────────────────┐
-│                     ML LAYER                                        │
-│                           │                                         │
-│              ┌────────────┴────────────┐                            │
-│              ▼                         ▼                            │
-│  ┌───────────────────────┐  ┌───────────────────────┐              │
-│  │  RF Classifier        │  │  RF Regressor         │              │
-│  │  (Risk Prediction)    │  │  (Affordability Score)│              │
-│  │  Accuracy: 100%       │  │  R² Score: 0.9997     │              │
-│  └──────────┬────────────┘  └──────────┬────────────┘              │
-│             └────────────┬─────────────┘                           │
-│                          │                                          │
-│                          ▼                                          │
-│               ┌─────────────────────┐                              │
-│               │ Recommendation      │  (src/recommendation_engine) │
-│               │ Engine              │  Composite Scoring:          │
-│               │ (Content-Based)     │  40% Affordability           │
-│               └──────────┬──────────┘  30% Rating                  │
-│                          │             20% Popularity               │
-└──────────────────────────┼─────────────────────────────────────────┘
-                           │             10% Category Match
-┌──────────────────────────┼─────────────────────────────────────────┐
-│                    APP LAYER                                        │
-│                          ▼                                          │
-│          ┌──────────────────────────────┐                          │
-│          │   Streamlit Dashboard        │  (app/finsmart_app.py)   │
-│          │   - EMI Calculator           │                          │
-│          │   - Product Cards            │                          │
-│          │   - Affordability Gauge      │                          │
-│          │   - Interactive Charts       │                          │
-│          └──────────────────────────────┘                          │
-└─────────────────────────────────────────────────────────────────────┘
-```
 
 **Pipeline Stages:**
 
@@ -70,7 +22,7 @@ The FinSmart data and ML pipeline flows as follows:
 
 ---
 
-## 📁 Dataset Details
+## 3. Dataset Details
 
 ### Source
 The dataset is **synthetically generated** to simulate a real-world Indian e-commerce environment. It mimics product catalogues and customer profiles found on platforms like Amazon India and Flipkart.
@@ -131,7 +83,7 @@ Key features derived during preprocessing:
 
 ---
 
-## 🤖 Deep Learning Integration Summary
+## 4. Deep Learning Integration Summary
 
 While the current production version of FinSmart uses **Random Forest** models (scikit-learn) as its primary ML backbone, deep learning is integrated into the project in the following ways:
 
@@ -174,7 +126,7 @@ Deep learning is listed in Phase 3 of the project roadmap as a planned enhanceme
 
 ---
 
-## 🚀 Steps to Run the Program
+## 5. Steps to Run the Program
 
 ### Prerequisites
 - Python **3.8 or higher**
@@ -257,49 +209,14 @@ http://localhost:8501
 
 ---
 
-## 🖼️ Sample Output Screenshot
+## 6. Sample Output Screenshot
+<img width="1919" height="970" alt="Screenshot 2026-04-29 185450" src="https://github.com/user-attachments/assets/2c46dbd6-b7a4-450d-b687-27a9f21248df" />
+<img width="1919" height="970" alt="Screenshot 2026-04-29 185601" src="https://github.com/user-attachments/assets/72e2bf62-18ba-49ef-bf52-c1daee053939" />
+<img width="1919" height="977" alt="Screenshot 2026-04-29 185619" src="https://github.com/user-attachments/assets/0bc357de-29b4-4a83-890e-4718c05143ef" />
+<img width="1918" height="689" alt="Screenshot 2026-04-29 185708" src="https://github.com/user-attachments/assets/f4c040f0-9f8d-4b1a-bbf2-d5a250814aec" />
+<img width="1919" height="1031" alt="Screenshot 2026-04-29 185748" src="https://github.com/user-attachments/assets/00d0c071-ef84-431d-86ed-9bd5e88e1f35" />
 
-> **Note:** The screenshot below shows the expected output of the FinSmart Streamlit dashboard after entering a financial profile and running the recommendation engine.
-
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│  ✨ FinSmart — AI-Based EMI Affordability & Smart Product Discovery  │
-├──────────────────┬───────────────────────────────────────────────────┤
-│  SIDEBAR         │  MAIN DASHBOARD                                   │
-│                  │                                                   │
-│  Monthly Income  │  ┌──────────┐ ┌──────────┐ ┌──────────┐         │
-│  ₹ 50,000        │  │Max Budget│ │Afford.   │ │Available │         │
-│                  │  │₹ 2,25,000│ │Score: 78 │ │₹ 32,500  │         │
-│  Existing EMI    │  └──────────┘ └──────────┘ └──────────┘         │
-│  ₹ 5,000         │                                                   │
-│                  │  ════ Affordability Gauge ════                    │
-│  Credit Score    │        [●━━━━━━━━━━━━━━━━━○]  78/100             │
-│  700             │        ✅ LOW RISK                                │
-│                  │                                                   │
-│  Max EMI         │  ════ Recommended Products ════                   │
-│  ₹ 8,000         │  ┌────────────────────────────────────────┐      │
-│                  │  │ 📱 Samsung Galaxy M34          ✅ LOW  │      │
-│  Duration        │  │ ₹18,999   EMI: ₹1,775/mo × 12 months │      │
-│  12 months       │  │ ⭐ 4.3  |  1,240 reviews              │      │
-│                  │  │           [ Buy Now → Amazon ]         │      │
-│  Category        │  └────────────────────────────────────────┘      │
-│  Mobile Phones   │  ┌────────────────────────────────────────┐      │
-│                  │  │ 💻 Lenovo IdeaPad Slim 3      ⚠️ MED  │      │
-│  [Find Products] │  │ ₹42,990   EMI: ₹4,021/mo × 12 months │      │
-│                  │  │ ⭐ 4.1  |  890 reviews                │      │
-│                  │  │           [ Buy Now → Flipkart ]       │      │
-│                  │  └────────────────────────────────────────┘      │
-└──────────────────┴───────────────────────────────────────────────────┘
-```
-
-> 📷 *To add a real screenshot: run the application, capture the dashboard, and replace this placeholder with:*
-> ```markdown
-> ![FinSmart Dashboard](outputs/dashboard_screenshot.png)
-> ```
-
----
-
-## 👥 Team Member Details
+## 7. Team Member Details
 
 | Name | Roll Number / ID | Role / Contribution |
 |------|-----------------|---------------------|
